@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kim Seongjun · Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #09090B;
+      --surface:      #111113;
+      --border:       #1F1F23;
+      --border-soft:  #2A2A2E;
+      --text:         #EDEDEC;
+      --text-muted:   #6B6B74;
+      --text-dim:     #3A3A40;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ─── HERO ─── */
+    #hero {
+      padding: 128px 0 72px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2rem, 5.5vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-name .kr {
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .hero-sub {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      max-width: 460px;
+      line-height: 1.8;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 0.625rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.5625rem 1.125rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      font-family: inherit;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: none;
+      line-height: 1;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover { background: #d4d4cc; }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-soft);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+      border-color: #3A3A40;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 56px 0; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .about-quote {
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .about-quote strong {
+      font-weight: 500;
+    }
+
+    .about-body p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 0.875rem;
+    }
+
+    .stats {
+      display: flex;
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-size: 1.375rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.25rem;
+    }
+
+    /* ─── PROJECTS ─── */
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: var(--border-soft); }
+
+    .project-card-body { padding: 1.625rem; }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.875rem;
+    }
+
+    .project-badge {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-link {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .project-link:hover { color: var(--text); }
+
+    .project-title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.625rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-title {
+      font-size: 1.1875rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .project-title-en {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.125rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    /* ─── FEATURES ─── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 0.75rem;
+      background: var(--border);
+      gap: 1px;
+    }
+
+    .feature-item {
+      background: var(--bg);
+      padding: 1.25rem 1.375rem;
+      transition: background 0.15s;
+    }
+
+    .feature-item:hover { background: var(--surface); }
+
+    .feature-title {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.375rem;
+    }
+
+    .feature-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── STACK ─── */
+    .stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .stack-pill {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.875rem;
+      border-radius: 20px;
+      transition: all 0.15s;
+    }
+
+    .stack-pill:hover {
+      color: var(--text);
+      border-color: var(--border-soft);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .footer-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.375rem;
+    }
+
+    .footer-link {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-link:hover { color: var(--text); }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 600px) {
+      .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1.25rem; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .footer-right { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Kim Seongjun</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="https://github.com/kimseongjun00" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section id="hero">
+      <p class="hero-eyebrow">Developer &amp; Founder</p>
+      <h1 class="hero-name">
+        Kim Seongjun<br>
+        <span class="kr">김성준</span>
+      </h1>
+      <p class="hero-sub">
+        코드로 시장의 불합리함을 깨는 개발자.<br>
+        운동시설 일일권 통합 플랫폼 <strong>짐캉스</strong>를 직접 만들고 있습니다.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
+        <a class="btn btn-ghost" href="https://github.com/kimseongjun00" target="_blank">GitHub ↗</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <p class="section-label">About</p>
+      <div class="about-grid reveal">
+        <div class="about-quote">
+          "꾸준한 사람만<br>
+          운동시설에<br>
+          <strong>갈 수 있나요?</strong>"
+        </div>
+        <div class="about-body">
+          <p>
+            정기권 하루 환산가 2,000원, 현장 일일권 20,000원.<br>
+            이 10배 차이가 만든 구조적 불합리함을 발견하고, 직접 해결책을 코드로 만들었습니다.
+          </p>
+          <p>
+            React Native로 앱을 직접 개발하고, Spring Boot로 백엔드를 설계합니다.
+            창업중심대학 지원사업 선정, 삼척시청 청년 스타트업 지원사업 선정을 통해
+            아이디어를 실제 서비스로 만들고 있습니다.
+          </p>
+          <div class="stats">
+            <div>
+              <div class="stat-num">90%</div>
+              <div class="stat-label">App Progress</div>
+            </div>
+            <div>
+              <div class="stat-num">9+</div>
+              <div class="stat-label">Partners</div>
+            </div>
+            <div>
+              <div class="stat-num">1K+</div>
+              <div class="stat-label">Respondents</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <p class="section-label">Projects</p>
+
+      <div class="project-card reveal">
+        <div class="project-card-body">
+          <div class="project-top">
+            <span class="project-badge">Startup Project</span>
+            <a class="project-link" href="https://github.com/kimseongjun00/gymcance" target="_blank">GitHub ↗</a>
+          </div>
+          <div class="project-title-row">
+            <span class="project-title">짐캉스</span>
+            <span class="project-title-en">Gymcance — Gym + Vacance</span>
+          </div>
+          <p class="project-desc">
+            운동시설의 정기권이 아닌 '일일권만' 판매하는 운동시설 통합 플랫폼.
+            시간, 공간, 운동 종목에 구애받지 않는 자유로운 운동 문화를 만듭니다.<br><br>
+            잠재 고객 1,000명 설문, 삼척·용인 9개 시설 파트너십 협의 완료.
+            삼척시청 청년 스타트업 지원사업 선정.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Mobile App</span>
+            <span class="tag">Platform</span>
+            <span class="tag">Startup</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-grid reveal">
+        <div class="feature-item">
+          <div class="feature-title">Mobile App × 2</div>
+          <div class="feature-desc">이용자 앱 + 관리자 앱, React Native로 직접 개발. 개발 진척도 90%.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Backend API</div>
+          <div class="feature-desc">Spring Boot 기반 RESTful API. PG 연동 완료 후 즉시 서비스 가동 가능.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Web Platform × 2</div>
+          <div class="feature-desc">플랫폼 사이트 + 관리자 페이지. 사업자가 직접 관리 가능한 구조.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- STACK -->
+    <section id="stack">
+      <p class="section-label">Tech Stack</p>
+      <div class="stack-list reveal">
+        <span class="stack-pill">React Native</span>
+        <span class="stack-pill">Spring Boot</span>
+        <span class="stack-pill">Java</span>
+        <span class="stack-pill">Git / GitHub</span>
+        <span class="stack-pill">REST API</span>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        <div class="footer-name">Kim Seongjun</div>
+        <div class="footer-sub">Developer &amp; Founder · Samcheok, Korea</div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="https://github.com/kimseongjun00" target="_blank">GitHub ↗</a>
+        <span class="footer-copy">© 2025 Kim Seongjun</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
