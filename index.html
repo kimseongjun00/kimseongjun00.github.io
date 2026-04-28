@@ -188,6 +188,16 @@
       align-items: start;
     }
 
+    .profile-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
     .about-quote {
       font-size: 1.0625rem;
       font-weight: 400;
@@ -421,6 +431,7 @@
     /* ─── MOBILE ─── */
     @media (max-width: 600px) {
       .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .profile-img { max-width: 160px; aspect-ratio: 1 / 1; }
       .feature-grid { grid-template-columns: 1fr; }
       .nav-links { gap: 1.25rem; }
       footer { flex-direction: column; align-items: flex-start; }
@@ -468,10 +479,13 @@
     <section id="about">
       <p class="section-label">About</p>
       <div class="about-grid reveal">
-        <div class="about-quote">
-          "꾸준한 사람만<br>
-          운동시설에<br>
-          <strong>갈 수 있나요?</strong>"
+        <div>
+          <img src="IMG_3039.jpeg" alt="Kim Seongjun" class="profile-img">
+          <div class="about-quote">
+            "꾸준한 사람만<br>
+            운동시설에<br>
+            <strong>갈 수 있나요?</strong>"
+          </div>
         </div>
         <div class="about-body">
           <p>
