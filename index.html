@@ -334,6 +334,28 @@
       border-radius: 4px;
     }
 
+    .project-links-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.125rem;
+      flex-wrap: wrap;
+    }
+
+    .project-ext-link {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border-soft);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .project-ext-link:hover {
+      color: var(--text);
+      border-color: #3A3A40;
+    }
+
     /* ─── FEATURES ─── */
     .feature-grid {
       display: grid;
@@ -486,7 +508,7 @@
       </div>
       <p class="hero-sub">
         코드로 시장의 불합리함을 깨는 개발자.<br>
-        운동시설 일일권 통합 플랫폼 <strong>짐캉스</strong>를 직접 만들고 있습니다.
+        운동시설 일일권 통합 플랫폼 <strong>짐캉스</strong>를 직접 만들고 서비스하고 있습니다.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
@@ -520,8 +542,8 @@
           </p>
           <div class="stats">
             <div>
-              <div class="stat-num">90%</div>
-              <div class="stat-label">App Progress</div>
+              <div class="stat-num">Live</div>
+              <div class="stat-label">Service</div>
             </div>
             <div>
               <div class="stat-num">9+</div>
@@ -545,41 +567,49 @@
       <div class="project-card reveal">
         <div class="project-card-body">
           <div class="project-top">
-            <span class="project-badge">Startup Project</span>
-            <a class="project-link" href="https://github.com/kimseongjun00/gymcance" target="_blank">GitHub ↗</a>
+            <span class="project-badge">Live Service · Startup</span>
+            <a class="project-link" href="https://www.gymcance.com" target="_blank">www.gymcance.com ↗</a>
           </div>
           <div class="project-title-row">
             <span class="project-title">짐캉스</span>
             <span class="project-title-en">Gymcance — Gym + Vacance</span>
           </div>
           <p class="project-desc">
-            운동시설의 정기권이 아닌 '일일권만' 판매하는 운동시설 통합 플랫폼.
-            시간, 공간, 운동 종목에 구애받지 않는 자유로운 운동 문화를 만듭니다.<br><br>
+            정기권 없이 원하는 날만 결제하는 <strong style="color:var(--text)">운동시설 일일권 통합 플랫폼</strong>.
+            정기권 하루 환산가 2,000원 vs 현장 일일권 20,000원, 10배 가격 차이의 구조적 불합리함을
+            직접 코드로 해결했습니다.<br><br>
             잠재 고객 1,000명 설문, 삼척·용인 9개 시설 파트너십 협의 완료.
-            삼척시청 청년 스타트업 지원사업 선정.
+            창업중심대학 지원사업 · 삼척시청 청년 스타트업 지원사업 선정.
           </p>
+          <div class="project-links-row">
+            <a class="project-ext-link" href="https://www.gymcance.com" target="_blank">이용자 사이트 ↗</a>
+            <a class="project-ext-link" href="https://admin.gymcance.com" target="_blank">운영자 콘솔 ↗</a>
+          </div>
           <div class="project-tags">
-            <span class="tag">React Native</span>
             <span class="tag">Spring Boot</span>
-            <span class="tag">Mobile App</span>
-            <span class="tag">Platform</span>
-            <span class="tag">Startup</span>
+            <span class="tag">Java</span>
+            <span class="tag">React Native</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">JWT</span>
+            <span class="tag">Toss Payments</span>
+            <span class="tag">WebSocket</span>
+            <span class="tag">Docker</span>
           </div>
         </div>
       </div>
 
       <div class="feature-grid reveal">
         <div class="feature-item">
-          <div class="feature-title">Mobile App × 2</div>
-          <div class="feature-desc">이용자 앱 + 관리자 앱, React Native로 직접 개발. 개발 진척도 90%.</div>
+          <div class="feature-title">Spring Boot API</div>
+          <div class="feature-desc">RESTful API 서버. JWT 인증, Toss PG 결제 연동, WebSocket 실시간 문의, 푸시 알림, Docker 운영.</div>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Backend API</div>
-          <div class="feature-desc">Spring Boot 기반 RESTful API. PG 연동 완료 후 즉시 서비스 가동 가능.</div>
+          <div class="feature-title">React Native App × 2</div>
+          <div class="feature-desc">이용자 앱 + 운영자 앱 직접 개발. QR 체크인, 예약 승인/거절, 수업 스케줄 관리.</div>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Web Platform × 2</div>
-          <div class="feature-desc">플랫폼 사이트 + 관리자 페이지. 사업자가 직접 관리 가능한 구조.</div>
+          <div class="feature-title">Web × 3</div>
+          <div class="feature-desc">랜딩(gymcance.com) + 파트너 관리 콘솔(admin) + 플랫폼 어드민. Spring Boot 단일 서버로 서빙.</div>
         </div>
       </div>
     </section>
