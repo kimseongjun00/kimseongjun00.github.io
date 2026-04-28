@@ -87,6 +87,22 @@
       padding: 128px 0 72px;
     }
 
+    .hero-top {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
     .hero-eyebrow {
       font-size: 0.8125rem;
       color: var(--text-muted);
@@ -458,11 +474,16 @@
 
     <!-- HERO -->
     <section id="hero">
-      <p class="hero-eyebrow">Developer &amp; Founder</p>
-      <h1 class="hero-name">
-        Kim Seongjun<br>
-        <span class="kr">김성준</span>
-      </h1>
+      <div class="hero-top">
+        <img src="IMG_3039.jpeg" alt="Kim Seongjun" class="hero-avatar">
+        <div>
+          <p class="hero-eyebrow">Developer &amp; Founder</p>
+          <h1 class="hero-name">
+            Kim Seongjun<br>
+            <span class="kr">김성준</span>
+          </h1>
+        </div>
+      </div>
       <p class="hero-sub">
         코드로 시장의 불합리함을 깨는 개발자.<br>
         운동시설 일일권 통합 플랫폼 <strong>짐캉스</strong>를 직접 만들고 있습니다.
