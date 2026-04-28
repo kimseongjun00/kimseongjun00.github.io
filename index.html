@@ -197,46 +197,91 @@
     }
 
     /* ─── ABOUT ─── */
-    .about-quote {
-      font-size: 1.0625rem;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    .about-quote strong {
-      font-weight: 500;
-    }
-
     .about-body p {
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
       color: var(--text-muted);
-      line-height: 1.85;
+      line-height: 1.9;
       margin-bottom: 0.875rem;
     }
 
-    .stats {
-      display: flex;
-      gap: 1.75rem;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+    .about-body p strong {
+      color: var(--text);
+      font-weight: 500;
     }
 
-    .stat-num {
-      font-size: 1.375rem;
+    /* ─── EDUCATION ─── */
+    .edu-list { list-style: none; }
+
+    .edu-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-item:first-child { border-top: 1px solid var(--border); }
+
+    .edu-period {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      min-width: 52px;
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .edu-name {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .edu-badge {
+      font-size: 0.6875rem;
       font-weight: 500;
       color: var(--text);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      flex-shrink: 0;
     }
 
-    .stat-label {
+    /* ─── AWARDS ─── */
+    .award-group { margin-bottom: 1.75rem; }
+
+    .award-group-label {
       font-size: 0.7rem;
-      color: var(--text-muted);
+      font-weight: 500;
+      color: var(--text-dim);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-top: 0.25rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .award-list { list-style: none; }
+
+    .award-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .award-item:first-child { border-top: 1px solid var(--border); }
+
+    .award-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      flex-shrink: 0;
+    }
+
+    .award-name {
+      font-size: 0.875rem;
+      color: var(--text-muted);
     }
 
     /* ─── PROJECTS ─── */
@@ -466,6 +511,7 @@
       <span class="nav-logo">Kim Seongjun</span>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#awards">Awards</a>
         <a href="#projects">Projects</a>
         <a href="#stack">Stack</a>
         <a href="https://github.com/kimseongjun00" target="_blank">GitHub ↗</a>
@@ -502,37 +548,77 @@
     <!-- ABOUT -->
     <section id="about">
       <p class="section-label">About</p>
-      <div class="reveal">
-        <div class="about-quote" style="margin-bottom:1.5rem">
-          "꾸준한 사람만<br>
-          운동시설에<br>
-          <strong>갈 수 있나요?</strong>"
-        </div>
-        <div class="about-body">
-          <p>
-            정기권 하루 환산가 2,000원, 현장 일일권 20,000원.<br>
-            이 10배 차이가 만든 구조적 불합리함을 발견하고, 직접 해결책을 코드로 만들었습니다.
-          </p>
-          <p>
-            React Native로 앱을 직접 개발하고, Spring Boot로 백엔드를 설계합니다.
-            창업중심대학 지원사업 선정, 삼척시청 청년 스타트업 지원사업 선정을 통해
-            아이디어를 실제 서비스로 만들고 있습니다.
-          </p>
-          <div class="stats">
-            <div>
-              <div class="stat-num">Live</div>
-              <div class="stat-label">Service</div>
-            </div>
-            <div>
-              <div class="stat-num">9+</div>
-              <div class="stat-label">Partners</div>
-            </div>
-            <div>
-              <div class="stat-num">1K+</div>
-              <div class="stat-label">Respondents</div>
-            </div>
-          </div>
-        </div>
+      <div class="about-body reveal">
+        <p>
+          2000년생, 한국외국어대학교 재학 중인 개발자입니다.<br>
+          <strong>불합리한 걸 발견하면 직접 코드로 고치는 사람</strong>입니다.
+        </p>
+        <p>
+          아이디어가 생기면 시장조사부터 앱 개발, 서버 구축, 배포까지 혼자 끝냅니다.
+          React Native로 앱을 만들고, Spring Boot로 백엔드를 설계하며,
+          현재 운동시설 일일권 플랫폼 <strong>짐캉스(gymcance.com)</strong>를 직접 운영하고 있습니다.
+        </p>
+        <p>
+          창업경진대회 대상, 정부 지원사업 선정, 미국 글로벌 연수까지 —<br>
+          만들고 증명하는 방식으로 성장해왔습니다.
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-label">Education</p>
+      <ul class="edu-list reveal">
+        <li class="edu-item">
+          <span class="edu-period">2019</span>
+          <span class="edu-name">강릉 명륜고등학교 졸업</span>
+        </li>
+        <li class="edu-item">
+          <span class="edu-period">2020—</span>
+          <span class="edu-name">한국성서대학교</span>
+        </li>
+        <li class="edu-item">
+          <span class="edu-period">현재</span>
+          <span class="edu-name">한국외국어대학교</span>
+          <span class="edu-badge">재학 중</span>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <!-- AWARDS -->
+    <section id="awards">
+      <p class="section-label">Awards &amp; Activities</p>
+
+      <div class="award-group reveal">
+        <p class="award-group-label">창업 · 정부지원</p>
+        <ul class="award-list">
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">삼척시청 청년 창업지원사업 선정</span></li>
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">창업중심대학 지원사업 선정</span></li>
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">창업진흥원 경진대회 수상자 대상 멘토링</span></li>
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">한국성서대학교 창업경진대회 대상</span></li>
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">한국성서대학교 창업경진대회 장려상</span></li>
+        </ul>
+      </div>
+
+      <div class="award-group reveal">
+        <p class="award-group-label">대회 · 연수</p>
+        <ul class="award-list">
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">글로벌챌린지 수상 — 미국 연수</span></li>
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">선후배 멘토링 프로그래밍 대회 우수상</span></li>
+        </ul>
+      </div>
+
+      <div class="award-group reveal">
+        <p class="award-group-label">장학</p>
+        <ul class="award-list">
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">1학년 2학기 1등장학</span></li>
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">2학년 2학기 2등장학</span></li>
+          <li class="award-item"><span class="award-dot"></span><span class="award-name">1학년 1학기 3등장학</span></li>
+        </ul>
       </div>
     </section>
 
@@ -616,6 +702,7 @@
       </div>
       <div class="footer-right">
         <a class="footer-link" href="https://github.com/kimseongjun00" target="_blank">GitHub ↗</a>
+        <a class="footer-link" href="mailto:audrhtjdwns@naver.com">audrhtjdwns@naver.com</a>
         <span class="footer-copy">© 2025 Kim Seongjun</span>
       </div>
     </footer>
